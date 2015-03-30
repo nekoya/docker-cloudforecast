@@ -33,7 +33,8 @@ WORKDIR /var/lib/cloudforecast
 RUN cpanm -l extlib --installdeps .
 RUN cpanm -l extlib DBD::mysql
 
-RUN apt-get install -y gearman-job-server  # avoid Perl's Gearman::Client broken test
+# avoid Perl's Gearman::Client broken test
+RUN apt-get install -y gearman-job-server
 
 # create data dir
 RUN mkdir data
