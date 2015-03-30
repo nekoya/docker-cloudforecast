@@ -9,6 +9,7 @@ RUN /usr/sbin/dpkg-reconfigure -f noninteractive tzdata
 RUN sed -i 's/archive.ubuntu.com/ftp.jaist.ac.jp\/pub\/Linux/' /etc/apt/sources.list
 RUN apt-get update && apt-get install -y \
     build-essential \
+    cpanminus \
     git \
     libmysqlclient18 \
     libnet-snmp-perl \
@@ -23,10 +24,6 @@ RUN apt-get update && apt-get install -y \
 RUN wget http://security.ubuntu.com/ubuntu/pool/multiverse/s/snmp-mibs-downloader/snmp-mibs-downloader_1.1_all.deb
 RUN dpkg -i snmp-mibs-downloader_1.1_all.deb
 RUN rm /etc/snmp/snmp.conf
-
-# CPANM
-RUN wget https://cpanmin.us -O /usr/bin/cpanm
-RUN chmod +x /usr/bin/cpanm
 
 # Install CloudForecast
 WORKDIR /var/lib
