@@ -13,6 +13,7 @@ RUN apt-get update && apt-get install -y \
     git \
     libmysqlclient18 \
     libmysqlclient-dev \
+    libcapture-tiny-perl \
     libnet-snmp-perl \
     librrds-perl \
     libsnmp-perl \
