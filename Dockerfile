@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y \
     cpanminus \
     git \
     libmysqlclient18 \
+    libmysqlclient-dev \
     libnet-snmp-perl \
     librrds-perl \
     libsnmp-perl \
@@ -30,6 +31,7 @@ WORKDIR /var/lib
 RUN git clone https://github.com/kazeburo/cloudforecast.git
 WORKDIR /var/lib/cloudforecast
 RUN cpanm -l extlib --installdeps .
+RUN cpanm -l extlib DBD::mysql
 
 RUN apt-get install -y gearman-job-server  # avoid Perl's Gearman::Client broken test
 
