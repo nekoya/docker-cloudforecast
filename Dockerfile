@@ -35,6 +35,9 @@ RUN cpanm -l extlib DBD::mysql
 
 RUN apt-get install -y gearman-job-server  # avoid Perl's Gearman::Client broken test
 
+# create data dir
+RUN mkdir data
+
 COPY start.sh /start.sh
 RUN chmod +x /start.sh
 
